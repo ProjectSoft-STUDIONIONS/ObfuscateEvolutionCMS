@@ -1,0 +1,28 @@
+# node & bower
+bower_components
+node_modules
+
+# dotenv
+.env
+
+
+# test or temp
+test
+test.*
+tests
+temp
+
+# SublimeText workspace file
+*.sublime-workspace
+
+# Debug end Develop
+*.sql
+
+# Window OS
+*.ini
+*.inf
+*.ico
+*.zip
+*.db
+
+!.gitignore
