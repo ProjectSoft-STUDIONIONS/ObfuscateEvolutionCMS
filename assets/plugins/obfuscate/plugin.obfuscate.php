@@ -1,18 +1,18 @@
 <?php
 /**
- * 
- * ObfuscateModxEvo
- * 
- * ObfuscateModxEvo plugin for MODX Evo
+ * obfuscate
+ *
+ * obfuscate plugin for Evolution CMS
  *
  * @category    plugin 
- * @version     1.0
+ * @version     1.0.0
  * @license     MIT
  * @internal    @properties 
  * @internal    @events OnWebPagePrerender 
  * @internal    @modx_category Content 
- * @internal    @legacy_names ObfuscateModxEvo
+ * @internal    @legacy_names obfuscate
  * @internal    @installset base
+ * @internal    @disabled 0
  * @author      ProjectSoft <projectsoft2009@yandex.ru>
 */
 
@@ -24,7 +24,7 @@ $e =& $modx->event;
 if(!function_exists("ordutf8")):
 	function ordutf8($string, &$offset_obfus) {
 		$code = ord(substr($string, $offset_obfus,1)); 
-		if ($code >= 128):                     //otherwise 0xxxxxxx
+		if ($code >= 128):                     //0xxxxxxx
 			if ($code < 224):
 				$bytesnumber = 2;              //110xxxxx
 			else:
@@ -54,7 +54,7 @@ if(!function_exists("obfuscate_replacer")):
 	function obfuscate_replacer(&$matches){
 		$str = trim($matches[2]);
 		$str = preg_replace('|&nbsp;|', ' ',$str);
-		$arr = explode("<br />", $str);
+		$arr = explode("<br>", $str);
 		$out = array();
 		$offset_obfus = 0;
 		foreach($arr as $key=>$value):
@@ -65,7 +65,7 @@ if(!function_exists("obfuscate_replacer")):
 			endwhile;
 			$out[] = $obfus;
 		endforeach;
-		$html = implode("<br />", $out);
+		$html = implode("<br>", $out);
 		return $html;
 	}
 endif;
