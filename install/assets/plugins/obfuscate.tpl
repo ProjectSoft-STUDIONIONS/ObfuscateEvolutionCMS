@@ -5,7 +5,7 @@
  * obfuscate plugin for Evolution CMS
  *
  * @category    plugin 
- * @version     2.1.0
+ * @version     2.1.1
  * @license     MIT
  * @internal    @properties 
  * @internal    @events OnWebPagePrerender 
@@ -22,7 +22,7 @@
  * obfuscate plugin for Evolution CMS
  *
  * @category    plugin 
- * @version     2.1.0
+ * @version     2.1.1
  * @license     MIT
  * @internal    @properties 
  * @internal    @events OnWebPagePrerender 

@@ -5,7 +5,7 @@
  * obfuscate plugin for Evolution CMS
  *
  * @category    plugin 
- * @version     2.1.0
+ * @version     2.1.1
  * @license     MIT
  * @internal    @properties 
  * @internal    @events OnWebPagePrerender 
@@ -26,6 +26,8 @@ $e =& $modx->event;
 
 switch ($e->name) {
 	case "OnWebPagePrerender":
-		$modx->documentOutput = (new Obfuscate())->render($modx->documentOutput);
+		$obfuscate = new Obfuscate();
+		$obfuscate->text = $modx->documentOutput;
+		$modx->documentOutput = $obfuscate->render();
 		break;
 }

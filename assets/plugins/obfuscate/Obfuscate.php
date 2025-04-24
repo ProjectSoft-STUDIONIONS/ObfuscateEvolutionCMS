@@ -2,10 +2,12 @@
 
 class Obfuscate {
 
+	public $text = '';
+
 	public function __constructor() {}
 
 	private function ordutf8($string, &$offset_obfus) {
-		$code = ord(substr($string, $offset_obfus,1)); 
+		$code = ord(substr($string, $offset_obfus, 1)); 
 		if ($code >= 128):                     //0xxxxxxx
 			if ($code < 224):
 				$bytesnumber = 2;              //110xxxxx
@@ -49,10 +51,10 @@ class Obfuscate {
 		return $html;
 	}
 
-	public function render(string $text = '') {
+	public function render($text = '') {
 		// Удаляем данные от старого плагина ибо ни все сайты сразу могу обслужить
 		$re = '/({?\/?obfuscate})/';
-		$text = preg_replace($re, "", $text);
+		$text = preg_replace($re, "", $this->text);
 		// Почта
 		$re = '/(((?:mailto:)?[A-z0-9]+@[A-z0-9]+\.[A-z]{2,4}))/';
 		$text = preg_replace_callback($re, array($this, 'obfuscate_replacer'), $text);
