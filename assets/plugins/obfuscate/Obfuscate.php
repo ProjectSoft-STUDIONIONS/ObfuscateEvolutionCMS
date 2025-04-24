@@ -54,7 +54,7 @@ class Obfuscate {
 		$re = '/({?\/?obfuscate})/';
 		$text = preg_replace($re, "", $text);
 		// Почта
-		$re = '/(([A-z0-9]+@[A-z0-9]+\.[A-z]{2,4}))/';
+		$re = '/(((?:mailto:)?[A-z0-9]+@[A-z0-9]+\.[A-z]{2,4}))/';
 		$text = preg_replace_callback($re, array($this, 'obfuscate_replacer'), $text);
 		// Телефон
 		$re = '/((\+?[7-8]\s?\(?\d{3,5}\)?\s?\d{1,3}-?\d{2}-?\d{2}))/';
